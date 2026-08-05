@@ -7,48 +7,50 @@ Netrokona University, Bangladesh
 #include <bits/stdc++.h>
 using namespace std;
 
-#define fast_io                  \
-    ios::sync_with_stdio(false); \
-    cin.tie(nullptr);
+#define fast_io ios::sync_with_stdio(false); cin.tie(nullptr);
 #define ll long long
 #define nl '\n'
 #define gcd __gcd
 
-int main()
-{
+int main() {
 
     fast_io;
 
     int t;
     cin >> t;
 
-    while (t--)
-    {
+    while (t--) {
 
         string s;
         cin >> s;
-        int n = s.size();
-        vector<int> v1(n + 1), v2(n + 1);
-        for (int i = 0; i < n; i++)
-        {
-            v1[i + 1] = v1[i];
-            if (s[i] == '2')
-                v1[i + 1] += 1;
+
+        int one = 0;
+        int two = 0;
+        int three = 0;
+
+        for (char c : s) {
+
+            if (c == '1') {
+                one++;
+            }
+
+            else if (c == '2') {
+                two = max(two + 1, one + 1);
+            }
+
+            else if (c == '3') {
+                three = max({three + 1, one + 1, two + 1});
+            }
+
+            else {
+
+                // cannot keep 4
+            }
         }
 
-        for (int i = n - 1; i >= 0; i--)
-        {
-            v2[i] = v2[i + 1];
-            if (s[i] == '1' || s[i] == '3')
-                v2[i] += 1;
-        }
+        int keep = max({one, two, three});
 
-        int mara = 0;
-        for (int i = 0; i <= n; i++)
-        {
-            mara = max(mara, v1[i] + v2[i]);
-        }
-        cout << n - mara << endl;
+        cout << (int)s.size() - keep << nl;
     }
 
     return 0;

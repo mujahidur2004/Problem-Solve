@@ -14,13 +14,26 @@ using namespace std;
 
 int main() {
     fast_io;
+    map<string ,int>mp;
 
     int t;
     cin >> t;
     while (t--) {
-        int n;
-        cin >> n;
-        cout<<n/2<<nl;
+        string s;
+        int a,b;
+        cin>>a;
+        if(a==1){
+            cin>>s>>b;
+            mp[s]=mp[s]+b;
+        }
+        else if(a==2){
+            cin>>s;
+            mp[s]=0;
+        }
+        else{
+            cin>>s;
+            cout<<mp[s]<<nl;
+        }
 
         
     }

@@ -20,7 +20,12 @@ int main() {
     while (t--) {
         int n;
         cin >> n;
-        cout<<n/2<<nl;
+       if( n%2==0){
+        cout<<n/2<<" "<<n/2<<nl;
+       }
+       else{
+        cout<<1<<" "<<n-1<<nl;
+       }
 
         
     }

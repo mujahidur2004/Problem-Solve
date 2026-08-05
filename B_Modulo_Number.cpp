@@ -15,14 +15,9 @@ using namespace std;
 int main() {
     fast_io;
 
-    int t;
-    cin >> t;
-    while (t--) {
-        int n;
-        cin >> n;
-        cout<<n/2<<nl;
-
-        
-    }
+    ll n;
+    cin>>n;
+    ll m=998244353;
+    cout<<((n%m)+m)%m<<nl;
     return 0;
 }

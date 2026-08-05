@@ -20,7 +20,15 @@ int main() {
     while (t--) {
         int n;
         cin >> n;
-        cout<<n/2<<nl;
+        int ele;
+        ll pos=0,neg=0;
+
+        for (int i = 0; i< n; i++) {
+            cin >> ele;
+            if(ele<0) neg+=(-1*ele);
+            else pos+=ele;
+        }
+        cout<<max(pos,neg)-min(pos,neg)<<nl;
 
         
     }

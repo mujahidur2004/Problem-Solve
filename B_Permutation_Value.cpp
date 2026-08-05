@@ -18,9 +18,13 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        int n;
+       int n;
         cin >> n;
-        cout<<n/2<<nl;
+       cout<<1<<" ";
+       for(int i=n;i>=2;i--){
+        cout<<i<<" ";
+       }
+       cout<<nl;
 
         
     }

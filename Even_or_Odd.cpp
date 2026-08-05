@@ -17,12 +17,8 @@ int main() {
 
     int t;
     cin >> t;
-    while (t--) {
-        int n;
-        cin >> n;
-        cout<<n/2<<nl;
+    if(t & 1)cout<<"ODD"<<nl;
+    else cout<<"EVEN"<<nl;
 
-        
-    }
     return 0;
 }

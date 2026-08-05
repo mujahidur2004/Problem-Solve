@@ -1,49 +1,63 @@
-/*
-BISMILLAH HIR RAHMAN NIR RAHIM
-Md Mujahidur Rahman
-Department of CSE
-Netrokona University, Bangladesh
-*/
 #include <bits/stdc++.h>
 using namespace std;
-
-#define fast_io                \
-  ios::sync_with_stdio(false); \
-  cin.tie(nullptr);
 #define ll long long
-#define nl '\n'
-#define gcd __gcd
+#define endl '\n'
 
-int main()
-{
-  fast_io;
-
-  int t;
-  cin >> t;
-  while (t--)
-  {
-    int n;
-    cin >> n;
-    vector<ll> a(n);
-    ll mx = 0, diff = 0;
-
-    for (int i = 0; i < n; i++)
-    {
-      cin >> a[i];
-      mx = max(mx, a[i]);
-      if(i) {
-        diff = max(diff , mx-a[i]);
-      }
+bool isSorted(vector<ll>& a) {
+  for (int i = 1; i < a.size(); i++) {
+    if (a[i] < a[i - 1]) {
+      return false;
     }
-    for( int i = 0 ; i < n-1 ; i++) {
-      if(a[i+1]< a[i]){
-        a[i+1]+=diff;
-      }
-    }
-    if(is_sorted(a.begin(),a.end())){
-      cout<<"YES"<<nl;
-    }
-    else cout<<"NO"<<nl;
   }
+  return true;
+}
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  int test_case;
+  cin >> test_case;
+  while (test_case--) {
+    ll n, need = 0;
+    cin >> n;
+    vector<ll> v(n);
+    for (int i = 0; i < n; ++i) {
+      cin >> v[i];
+    }
+    int loop = 1;
+    vector<int> vis(n, 0);
+    if (isSorted(v)) {
+      cout << "YES" << endl;
+      continue;
+    }
+    ll mx = 0;
+    for (int i = 0; i < n; ++i) {
+      mx = max(v[i], mx);
+      if (mx > v[i]) {
+        vis[i] = 1;
+        need = max(need, mx - v[i]);
+      }
+    }
+
+
+    for (int i = 0; i < n; ++i) {
+      if (vis[i]) {
+        v[i] += need;
+      }
+      
+      if (i > 0 && !vis[i] && v[i] < v[i - 1]) {
+        vis[i] = 1;
+        v[i] += need;
+      }
+    }
+
+    int flag = 0;
+    if (isSorted(v)) {
+      flag = 1;
+    }
+
+    cout << (flag ? "YES" : "NO") << endl;
+  }
+
   return 0;
 }

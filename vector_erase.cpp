@@ -15,14 +15,27 @@ using namespace std;
 int main() {
     fast_io;
 
-    int t;
-    cin >> t;
-    while (t--) {
+   
         int n;
         cin >> n;
-        cout<<n/2<<nl;
+        vector<ll> a(n);
+
+        for (int i = 0; i< n; i++) {
+            cin >> a[i];
+        }
+        int c,b;
+        cin>>c;
+        c--;
+        a.erase(a.begin()+c);
+        cin>>b>>c;
+        a.erase(a.begin()+b-1,a.begin()+c-1);
+        cout<<a.size()<<nl;
+        for(auto ele : a){
+            cout<<ele<<" ";
+        }
+        cout<<nl;
 
         
-    }
+    
     return 0;
 }

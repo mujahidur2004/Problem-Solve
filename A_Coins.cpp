@@ -15,14 +15,8 @@ using namespace std;
 int main() {
     fast_io;
 
-    int t;
-    cin >> t;
-    while (t--) {
-        int n;
-        cin >> n;
-        cout<<n/2<<nl;
-
-        
-    }
+    int a,b;
+    cin>>a>>b;
+    cout<<(b+a-1)/a<<nl;
     return 0;
 }

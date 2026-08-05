@@ -20,8 +20,12 @@ int main() {
     while (t--) {
         int n;
         cin >> n;
-        cout<<n/2<<nl;
+        
 
+        for (int i = 2; i<= n; i++) {
+            cout<<i<<" ";
+        }
+        cout<<1<<nl;
         
     }
     return 0;

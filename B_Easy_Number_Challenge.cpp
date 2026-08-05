@@ -10,7 +10,7 @@ int main() {
 
     vector<int> divisors(MAX + 1, 0);
 
-   []
+   
     for(int i = 1; i <= MAX; i++) {
         for(int j = i; j <= MAX; j += i) {
             divisors[j]++;
@@ -29,4 +29,4 @@ int main() {
 
     cout << sum << "\n";
     return 0;
-}]
+}

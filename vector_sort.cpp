@@ -15,14 +15,20 @@ using namespace std;
 int main() {
     fast_io;
 
-    int t;
-    cin >> t;
-    while (t--) {
+    
         int n;
         cin >> n;
-        cout<<n/2<<nl;
+        vector<ll> a(n);
+
+        for (int i = 0; i< n; i++) {
+            cin >> a[i];
+        }
+        sort(a.begin(),a.end());
+        for(auto ele :a) cout<<ele<<" ";
+
+        cout<<nl;
 
         
-    }
+    
     return 0;
 }

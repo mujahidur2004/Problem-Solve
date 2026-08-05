@@ -14,13 +14,28 @@ using namespace std;
 
 int main() {
     fast_io;
-
+    set<int>st;
     int t;
     cin >> t;
     while (t--) {
-        int n;
-        cin >> n;
-        cout<<n/2<<nl;
+        
+        int x,y;
+        cin>>x>>y;
+        if(x==1){
+            st.insert(y);
+
+        }
+        else if(x==2){
+            st.erase(y);
+        }
+        else{
+            if(st.find(y)==st.end()){
+                cout<<"No"<<nl;
+            }
+            else{
+                cout<<"Yes"<<nl;
+            }
+        }
 
         
     }

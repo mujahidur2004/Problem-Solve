@@ -1,0 +1,1 @@
+{"name":"Local: BClosestToTheLeft","url":"e:\\Code\\Phase 1\\Class 6\\Problem\\BClosestToTheLeft.cpp","tests":[{"id":1783847304788,"input":"5 5\n3 3 5 8 9\n2 4 8 1 10\n","output":"0\n2\n4\n0\n5\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Code\\Phase 1\\Class 6\\Problem\\BClosestToTheLeft.cpp","group":"local","local":true}

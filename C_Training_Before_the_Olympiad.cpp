@@ -28,21 +28,7 @@ int main()
 
         for (int i = 0; i < n; i++)
             cin >> a[i];
-        if(n%2){
-            cout<<"Mike"<<nl;
-        }
-        else{
-            int minele= *min_element(a.begin(),a.end());
-            for(int i=0;i<n;i++){
-                if(a[i]==minele){
-                    if(i%2==0){
-                        cout<<"Joe"<<nl;
-                    }
-                    else cout<<"Mike"<<nl;
-                    break;
-                }
-            }
-        }
+
         
     }
 

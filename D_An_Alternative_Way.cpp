@@ -17,22 +17,39 @@ int main() {
 
     int t;
     cin >> t;
+
     while (t--) {
         int n;
         cin >> n;
-        vector<ll> a(n),b(n);
 
-        for (int i = 0; i< n; i++) {
-            cin >> a[i];
-        }
-         for (int i = 0; i< n; i++) {
-            cin >> b[i];
-        }
-        for(int i=n-1;i>=0;i--){
-            if()
+        vector<ll> a(n+1), b(n+1), f(n+1);
+
+        for (int i = 0; i < n; i++) {
+            cin >> a[i+1];
         }
 
-        
+        for (int i = 0; i < n; i++) {
+            cin >> b[i+1];
+        }
+
+        ll suma = 0, sumb = 0;
+        bool ok = true;
+
+        for (int i = 1; i <= n; i++) {
+            suma += a[i];
+            sumb += b[i];
+
+            if (suma > sumb) {
+                ok = false;
+                break;
+            }
+        }
+
+        if (ok)
+            cout << "YES" << nl;
+        else
+            cout << "NO" << nl;
     }
+
     return 0;
 }

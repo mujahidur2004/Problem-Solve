@@ -7,34 +7,32 @@ Netrokona University, Bangladesh
 #include <bits/stdc++.h>
 using namespace std;
 
-#define fast_io                  \
-    ios::sync_with_stdio(false); \
-    cin.tie(nullptr);
+#define fast_io ios::sync_with_stdio(false); cin.tie(nullptr);
 #define ll long long
 #define nl '\n'
 #define gcd __gcd
 
-
-int main()
-{
+int main() {
     fast_io;
 
     int t;
     cin >> t;
-    while (t--)
-    {
-        
-        int n;
+
+    while (t--) {
+        ll n;
         cin >> n;
 
-       
-        string s1 = to_string(n);
-        ll y=1;
-        for(int i=0;i<s1.size();i++){
-            y*=10;
-        }
-        cout<<y+1<<nl;
+        int ans = 0;
 
+        while (n > 0) {
+            int digit = n % 10;
+
+            ans = max(ans, digit);
+
+            n /= 10;
+        }
+
+        cout << ans << nl;
     }
 
     return 0;

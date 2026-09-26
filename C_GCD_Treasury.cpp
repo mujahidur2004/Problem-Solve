@@ -22,55 +22,54 @@ int main()
 
     while (t--)
     {
-        int n , x;
+        int n, x;
         cin >> n >> x;
-        
+ 
         vector<int> a(n);
-        map<int,int>mp,mp2;
-        ll ans =0;
-
-        for (int i = 0; i < n; i++){
-             cin >> a[i];
-             if(a[i]%x==0){
-                ans+=a[i];
-                continue;
-             }
-             mp[a[i]]++;
+ 
+        for(int i = 0; i < n; i++)
+        {
+            cin >> a[i];
         }
-           
-            
-        if(x==1){
-            cout<<0<<nl;
-            continue;
-        }
-        int maxadd =0;
-        for(auto ele :mp){
-            int f = ele.first,s=ele.second;
-            for(int i=2;i*i <=f;i++){
-                
-                if(f%i==0){
-                    mp2[i]+=(s);
-                    
-                        mp2[f/i]+=s;
-                    
-                    
+        vector<int> prime;
+ 
+        int temp = x;
+ 
+        for(int p = 2; p * p <= temp; p++)
+        {
+            if(temp % p == 0)
+            {
+                prime.push_back(p);
+ 
+                while(temp % p == 0)
+                {
+                    temp /= p;
                 }
-
-            }
-            mp2[f]+=s;
-            
-        }
-        for(auto ele :mp2){
-            int gd=gcd(x,ele.first);
-            if(gd !=1){
-                int ad = mp2[gd] * ele.first;
-                maxadd=max(maxadd,ad);
-
             }
         }
-
-       
-        cout<<ans+maxadd<<nl;
+ 
+        if(temp > 1)
+        {
+            prime.push_back(temp);
+        }
+ 
+        int ans = 0;
+        for(int p : prime)
+        {
+            int sum = 0;
+ 
+            for(int i = 0; i < n; i++)
+            {
+                if(a[i] % p == 0)
+                {
+                    sum += a[i];
+                }
+            }
+ 
+            ans = max(ans, sum);
+        }
+ 
+        cout << ans << endl;
 
         
     }

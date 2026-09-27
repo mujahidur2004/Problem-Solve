@@ -16,30 +16,21 @@ using namespace std;
 #define nl '\n'
 #define gcd __gcd
 
-int ck(string s)
-{
-    set<int> st;
-
-    while (true)
-    {
-        int ns = 0;
-
-        for (int i = 0; i < s.size(); i++)
-        {
-            int cr = s[i] - '0';
-            ns += cr * cr;
-        }
-
-        if (ns == 1)
-            return true;
-
-        if (st.count(ns))
-            return false;
-
-        st.insert(ns);
-
-        s = to_string(ns);
+long long ck(long long x) {
+ 
+    long long s = 0;
+ 
+    while (x > 0) {
+ 
+        long long d = x % 10;
+ 
+        s += d * d;
+ 
+        x /= 10;
+ 
     }
+ 
+    return s;
 }
 
 int main()
@@ -54,49 +45,34 @@ int main()
         int n;
         cin >> n;
 
-        map<string, int> mp;
+        map<int, int> mp;
 
-        string s, ns;
+        int s, ns;
 
         for (int i = 0; i < n; i++)
         {
             cin >> s;
 
-            ns = "";
+           
 
-            for (int j = 0; j < s.size(); j++)
+            for (int j = 0; j < 1000; j++)
             {
-                if (s[j] != '0')
-                {
-                    ns.push_back(s[j]);
-                }
+                s = ck(s);
             }
 
-            mp[ns]++;
+            mp[s]++;
         }
 
-        int cnt = 0;
+        ll ans =0;
 
         for (auto ele : mp)
         {
-            cnt = max(cnt, ele.second);
+            ans+=(ele.second*(ele.second-1)/2);
         }
 
-        int ans = (cnt * (cnt - 1)) / 2;
+        
 
-        int cnt2 = 0;
-
-        for (auto ele : mp)
-        {
-            if (ck(ele.first))
-            {
-                cnt2 += ele.second;
-            }
-        }
-
-        int ans2 = (cnt2 * (cnt2 - 1)) / 2;
-
-        cout << max(ans2, ans) << nl;
+        cout << ans << nl;
     }
 
     return 0;

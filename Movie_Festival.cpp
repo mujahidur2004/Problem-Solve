@@ -4,6 +4,7 @@ Md Mujahidur Rahman
 Department of CSE
 Netrokona University, Bangladesh
 */
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -20,28 +21,21 @@ int main()
 
     int n;
     cin >> n;
-    vector<ll> a(n);
 
+    int x, y;
+    map<int, int> mp;
     for (int i = 0; i < n; i++)
     {
-        cin >> a[i];
+        cin >> x >> y;
+        mp[x]++;
+        mp[y + 1]--;
     }
-
-    set<int> mst;
-    int cnt = 0;
-    for (int i = 0; i < n; i++)
-    {
-        mst.insert(a[i]);
-        auto it = mst.find(a[i]);
-        if(it == mst.begin()){
-            cnt++;
-            continue;
-        }
-        it++;
-        if (it == mst.end())
-            cnt++;
+    int sum=0,res=0;
+    for(auto ele :mp){
+        sum+= ele.second;
+        res=max(res,sum);
     }
-    cout << cnt << nl;
+    cout<<n-res<<nl;
 
     return 0;
 }

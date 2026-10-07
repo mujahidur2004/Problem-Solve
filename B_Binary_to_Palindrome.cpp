@@ -28,21 +28,15 @@ int main()
         string s;
         cin >> s;
 
-        int f = 0, f1 = 0;
+        int f = 0;
 
         for (int i = 0; i < n; i++)
         {
             if (s[i] == '1')
                 f++;
-
-            if (i)
-            {
-                if (s[i] == s[i - 1])
-                    f1 = 1;
-            }
         }
 
-        // s1 must be 1
+        // Length 1 must always be palindrome
         if (s[0] == '0')
         {
             cout << -1 << nl;
@@ -59,7 +53,7 @@ int main()
             cout << nl;
         }
 
-        // Type 3: 100000...
+        // Type 2: 100000...
         else if (f == 1)
         {
             for (int i = 0; i < n - 1; i++)
@@ -70,16 +64,18 @@ int main()
             cout << 'b' << nl;
         }
 
-        // Type 4: 1000...001
+        // Type 3: 100...001
         else if (f == 2 && s[n - 1] == '1')
         {
             for (int i = 1; i <= n; i++)
             {
-                if (i == n / 2)
+                // Odd n -> one middle 'b'
+                // Even n -> two middle 'b's
+                if (i == (n + 1) / 2)
                 {
                     cout << 'b';
                 }
-                else if (n % 2 == 0 && i == (n / 2) + 1)
+                else if (n % 2 == 0 && i == n / 2 + 1)
                 {
                     cout << 'b';
                 }
@@ -92,22 +88,22 @@ int main()
             cout << nl;
         }
 
-        // Type 2: 101010...
+        // Type 4: 101010...
         else
         {
-            int ok = 1;
+            bool ok = true;
 
             for (int i = 0; i < n; i++)
             {
                 if (i % 2 == 0 && s[i] != '1')
                 {
-                    ok = 0;
+                    ok = false;
                     break;
                 }
 
                 if (i % 2 == 1 && s[i] != '0')
                 {
-                    ok = 0;
+                    ok = false;
                     break;
                 }
             }
@@ -116,10 +112,10 @@ int main()
             {
                 for (int i = 0; i < n; i++)
                 {
-                    if (i % 2)
-                        cout << 'b';
-                    else
+                    if (i % 2 == 0)
                         cout << 'a';
+                    else
+                        cout << 'b';
                 }
 
                 cout << nl;

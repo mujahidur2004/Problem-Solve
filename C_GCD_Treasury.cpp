@@ -53,10 +53,10 @@ int main()
             prime.push_back(temp);
         }
  
-        int ans = 0;
+        ll ans = 0;
         for(int p : prime)
         {
-            int sum = 0;
+            ll sum = 0;
  
             for(int i = 0; i < n; i++)
             {

@@ -41,8 +41,10 @@ int main()
         {
             ll sum = a[i] + a[i + 2] - a[i + 4];
             mp[sum]++;
+            //cout<<i<<" "<<sum<<nl;
         }
 
+       
         for (int i = 1; i <= n - 4; i++)
         {
             ll sum = a[i] + a[i + 2] - a[i + 4];

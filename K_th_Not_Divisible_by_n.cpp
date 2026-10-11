@@ -28,7 +28,7 @@ int main()
             cout<<n+1<<nl;
             continue;
         }
-        int slotneeds= (k / (n-1));
+        int slotneeds= ((k-1 )/ (n-1));
         int ans =( n * slotneeds);
         if(slotneeds==0){
             ans+=k;

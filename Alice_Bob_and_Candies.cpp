@@ -59,12 +59,12 @@ int main()
                     sum+=a[k];
                     if(sum>last){
                         f=1;
-                        cnt++;
+                        //cnt++;
                         break;
 
                     }
                 }
-                
+                cnt++;
                 suma+=sum;
                 last=sum;
                 i= k+1;

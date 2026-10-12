@@ -8,7 +8,9 @@ Netrokona University, Bangladesh
 #include <bits/stdc++.h>
 using namespace std;
 
-#define fast_io ios::sync_with_stdio(false); cin.tie(nullptr);
+#define fast_io                  \
+    ios::sync_with_stdio(false); \
+    cin.tie(nullptr);
 #define ll long long
 #define nl '\n'
 #define gcd __gcd
@@ -22,33 +24,30 @@ int main()
 
     while (t--)
     {
-        int n,k;
-        cin >> n >>k;
+        int n, k;
+        cin >> n >> k;
         vector<ll> a(n);
-        map<int,int>mp;
+        map<int, int> mp;
 
-        for (int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++)
+        {
             cin >> a[i];
             mp[a[i]]++;
-
         }
-        int f=1,extra=0;
-        int i=0;
-        for(auto ele :mp){
-            if(ele.first != i) break;
-            if(((ele.second  +1  )/2 < k)) break;
-            if(ele.second % 2 !=0 && ((ele.second  +1  )/2 >= k)){
-                f=0;
+        int f = 1, extra = 0;
+        int i = 0;
+        for (int i = 0; i <= n; i++)
+        {
+            if (mp[i] < k * 2)
+            {
+                if (mp[i] == k * 2 - 1)
+                    cout << "YES"<<nl;
+                else
+                    cout << "NO"<<nl;
                 break;
             }
-            i++;
-
         }
-        if(!f) cout<<"YES"<<nl;
-        else cout<<"NO"<<nl;
-            
-
-        
+       
     }
 
     return 0;

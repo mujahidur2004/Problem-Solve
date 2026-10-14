@@ -1,0 +1,1 @@
+{"name":"Local: d1","url":"e:\\ProblemsolvingCode\\d1.cpp","tests":[{"id":1791963481613,"input":"2\nA1 B5 C8 D6 E3 F7 G2 H4\nC3 E4 C4 E1 C4 F4 A8 G6\n","output":"Valid\nInvalid\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\ProblemsolvingCode\\d1.cpp","group":"local","local":true}
